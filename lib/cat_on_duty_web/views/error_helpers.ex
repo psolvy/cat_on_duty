@@ -39,9 +39,9 @@ defmodule CatOnDutyWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(CatOnDutyWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(CatOnDuty.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(CatOnDutyWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(CatOnDuty.Gettext, "errors", msg, opts)
     end
   end
 end

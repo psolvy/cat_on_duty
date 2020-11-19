@@ -5,7 +5,7 @@
 # is restricted to this project.
 
 # General application configuration
-use Mix.Config
+import Config
 
 config :cat_on_duty,
   ecto_repos: [CatOnDuty.Repo]
@@ -25,6 +25,12 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :gettext, :default_locale, "ru"
+
+config :cat_on_duty, :basic_auth, username: "ruby", password: "Rubyisthebest!"
+
+import_config "cron_tasks.exs"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

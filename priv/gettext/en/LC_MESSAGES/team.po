@@ -1,0 +1,36 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/form_component.html.leex:9
+#: lib/cat_on_duty_web/live/team_live/index.html.leex:24
+msgid "Name"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/index.html.leex:1
+#: lib/cat_on_duty_web/templates/layout/root.html.leex:17
+msgid "Teams"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/form_component.html.leex:13
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:24
+msgid "Telegram chat ID"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/index.html.leex:25
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:29
+msgid "Today on duty"
+msgstr ""

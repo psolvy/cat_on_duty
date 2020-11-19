@@ -22,7 +22,7 @@ defmodule CatOnDutyWeb do
       use Phoenix.Controller, namespace: CatOnDutyWeb
 
       import Plug.Conn
-      import CatOnDutyWeb.Gettext
+      import CatOnDuty.Gettext
       alias CatOnDutyWeb.Router.Helpers, as: Routes
     end
   end
@@ -72,7 +72,7 @@ defmodule CatOnDutyWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import CatOnDutyWeb.Gettext
+      import CatOnDuty.Gettext
     end
   end
 
@@ -83,12 +83,13 @@ defmodule CatOnDutyWeb do
 
       # Import LiveView helpers (live_render, live_component, live_patch, etc)
       import Phoenix.LiveView.Helpers
+      import CatOnDutyWeb.LiveHelpers
 
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
       import CatOnDutyWeb.ErrorHelpers
-      import CatOnDutyWeb.Gettext
+      import CatOnDuty.Gettext
       alias CatOnDutyWeb.Router.Helpers, as: Routes
     end
   end

@@ -1,6 +1,9 @@
 defmodule CatOnDutyWeb.Router do
   use CatOnDutyWeb, :router
 
+  import Phoenix.LiveDashboard.Router
+  import Plug.BasicAuth
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -8,6 +11,7 @@ defmodule CatOnDutyWeb.Router do
     plug :put_root_layout, {CatOnDutyWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :basic_auth, Application.compile_env(:cat_on_duty, :basic_auth)
   end
 
   pipeline :api do
@@ -17,27 +21,22 @@ defmodule CatOnDutyWeb.Router do
   scope "/", CatOnDutyWeb do
     pipe_through :browser
 
+    live_dashboard "/dashboard", metrics: CatOnDutyWeb.Telemetry
+
     live "/", PageLive, :index
-  end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", CatOnDutyWeb do
-  #   pipe_through :api
-  # end
+    live "/teams", TeamLive.Index, :index
+    live "/teams/new", TeamLive.Index, :new
 
-  # Enables LiveDashboard only for development
-  #
-  # If you want to use the LiveDashboard in production, you should put
-  # it behind authentication and allow only admins to access it.
-  # If your application does not have an admins-only section yet,
-  # you can use Plug.BasicAuth to set up some basic authentication
-  # as long as you are also using SSL (which you should anyway).
-  if Mix.env() in [:dev, :test] do
-    import Phoenix.LiveDashboard.Router
+    live "/teams/:id", TeamLive.Show, :show
+    live "/teams/:id/edit", TeamLive.Show, :edit
+    live "/teams/:id/new_sentry", TeamLive.Show, :new_sentry
+    live "/teams/:id/edit_sentry/:sentry_id", TeamLive.Show, :edit_sentry
 
-    scope "/" do
-      pipe_through :browser
-      live_dashboard "/dashboard", metrics: CatOnDutyWeb.Telemetry
-    end
+    live "/sentries", SentryLive.Index, :index
+    live "/sentries/new", SentryLive.Index, :new_sentry
+
+    live "/sentries/:id", SentryLive.Show, :show
+    live "/sentries/:id/edit", SentryLive.Show, :edit_sentry
   end
 end

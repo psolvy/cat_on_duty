@@ -1,0 +1,51 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:9
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:24 lib/cat_on_duty_web/live/team_live/show.html.leex:44
+msgid "Name"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:13
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:25 lib/cat_on_duty_web/live/sentry_live/show.html.leex:14
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:45
+msgid "Telegram username"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:18
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:26 lib/cat_on_duty_web/live/sentry_live/show.html.leex:18
+msgid "Team"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:23
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:27 lib/cat_on_duty_web/live/sentry_live/show.html.leex:32
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:47
+msgid "On vacation?"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/index.ex:50
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:1 lib/cat_on_duty_web/live/team_live/show.html.leex:40
+#: lib/cat_on_duty_web/templates/layout/root.html.leex:18
+msgid "Sentries"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/show.html.leex:27
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:46
+msgid "Last duty"
+msgstr ""

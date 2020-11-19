@@ -11,6 +11,7 @@ msgstr ""
 "Language: en\n"
 
 ## From Ecto.Changeset.cast/4
+#: lib/cat_on_duty/employees/sentry.ex:21
 msgid "can't be blank"
 msgstr ""
 
@@ -94,4 +95,9 @@ msgid "must be greater than or equal to %{number}"
 msgstr ""
 
 msgid "must be equal to %{number}"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty/employees/sentry.ex:24
+msgid "must starts with '@'"
 msgstr ""

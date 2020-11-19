@@ -1,0 +1,50 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here as no
+## effect: edit them in PO (.po) files instead.
+msgid ""
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:9
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:24 lib/cat_on_duty_web/live/team_live/show.html.leex:44
+msgid "Name"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:13
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:25 lib/cat_on_duty_web/live/sentry_live/show.html.leex:14
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:45
+msgid "Telegram username"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:18
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:26 lib/cat_on_duty_web/live/sentry_live/show.html.leex:18
+msgid "Team"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:23
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:27 lib/cat_on_duty_web/live/sentry_live/show.html.leex:32
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:47
+msgid "On vacation?"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/index.ex:50
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:1 lib/cat_on_duty_web/live/team_live/show.html.leex:40
+#: lib/cat_on_duty_web/templates/layout/root.html.leex:18
+msgid "Sentries"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/show.html.leex:27
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:46
+msgid "Last duty"
+msgstr ""

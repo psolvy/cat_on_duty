@@ -1,0 +1,47 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here as no
+## effect: edit them in PO (.po) files instead.
+msgid ""
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.ex:36
+msgid "Sentry changed"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.ex:59
+msgid "Sentry added"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/show.ex:74
+#: lib/cat_on_duty_web/live/team_live/show.ex:87
+msgid "Sentry deleted"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/form_component.ex:48
+msgid "Team added"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/form_component.ex:35
+msgid "Team changed"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/show.ex:74
+msgid "Team deleted"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/show.ex:96
+msgid "Team today sentry rotated"
+msgstr ""

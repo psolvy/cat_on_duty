@@ -1,0 +1,121 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here as no
+## effect: edit them in PO (.po) files instead.
+msgid ""
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:24
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:39 lib/cat_on_duty_web/live/sentry_live/show.html.leex:33
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:55
+msgid "No"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:27
+#: lib/cat_on_duty_web/live/team_live/form_component.html.leex:17
+msgid "Save"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:24
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:39 lib/cat_on_duty_web/live/sentry_live/show.html.leex:33
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:55
+msgid "Yes"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:27
+#: lib/cat_on_duty_web/live/team_live/form_component.html.leex:17
+msgid "Saving..."
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:41
+#: lib/cat_on_duty_web/live/team_live/index.html.leex:39 lib/cat_on_duty_web/live/team_live/show.html.leex:57
+msgid "Show"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/index.ex:45
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:49 lib/cat_on_duty_web/live/team_live/show.ex:107
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:64
+msgid "New sentry"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/show.ex:80
+#: lib/cat_on_duty_web/live/sentry_live/show.html.leex:37 lib/cat_on_duty_web/live/team_live/show.ex:113
+msgid "Edit sentry"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/show.html.leex:38
+msgid "Delete sentry"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/show.html.leex:38
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:35 lib/cat_on_duty_web/live/team_live/show.html.leex:66
+msgid "Are you shure?"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/index.ex:46
+#: lib/cat_on_duty_web/live/team_live/index.html.leex:46
+msgid "New team"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/index.ex:51
+msgid "Teams"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:66
+msgid "Delete team"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/show.ex:103
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:65
+msgid "Edit team"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:15
+msgid "Search by name or telegram username"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/index.html.leex:15
+msgid "Search by name"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/templates/layout/root.html.leex:20
+msgid "Dashboard"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/index.html.leex:35
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:33
+msgid "Nobody, we are in danger!"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/show.html.leex:35
+msgid "Rotate today sentry"
+msgstr ""
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:19
+#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:37 lib/cat_on_duty_web/live/sentry_live/show.html.leex:22
+msgid "Not selected"
+msgstr ""

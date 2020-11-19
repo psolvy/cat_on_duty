@@ -1,0 +1,48 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: ru\n"
+"Plural-Forms: nplurals=3\n"
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.ex:36
+msgid "Sentry changed"
+msgstr "Дежурный изменен"
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/form_component.ex:59
+msgid "Sentry added"
+msgstr "Дежурный добавлен"
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/sentry_live/show.ex:74
+#: lib/cat_on_duty_web/live/team_live/show.ex:87
+msgid "Sentry deleted"
+msgstr "Дежурный удален"
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/form_component.ex:48
+msgid "Team added"
+msgstr "Команда добавлена"
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/form_component.ex:35
+msgid "Team changed"
+msgstr "Команда изменена"
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/show.ex:74
+msgid "Team deleted"
+msgstr "Команда удалена"
+
+#, elixir-format
+#: lib/cat_on_duty_web/live/team_live/show.ex:96
+msgid "Team today sentry rotated"
+msgstr "Ротация дежурных запущена"

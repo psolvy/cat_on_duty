@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 # Configure your database
 config :cat_on_duty, CatOnDuty.Repo,

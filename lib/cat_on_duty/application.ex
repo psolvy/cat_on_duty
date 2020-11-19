@@ -14,9 +14,10 @@ defmodule CatOnDuty.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: CatOnDuty.PubSub},
       # Start the Endpoint (http/https)
-      CatOnDutyWeb.Endpoint
+      CatOnDutyWeb.Endpoint,
       # Start a worker by calling: CatOnDuty.Worker.start_link(arg)
       # {CatOnDuty.Worker, arg}
+      CatOnDuty.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
