@@ -1,4 +1,6 @@
 defmodule CatOnDutyWeb.LiveHelpers do
+  @moduledoc "Live view helpers"
+
   import Phoenix.LiveView.Helpers
 
   @doc """

@@ -1,11 +1,13 @@
 defmodule CatOnDutyWeb.SentryLive.Show do
+  @moduledoc "Sentry show page handlers"
+
   use CatOnDutyWeb, :live_view
 
   alias CatOnDuty.Employees
 
   @impl true
   def mount(%{"id" => id}, _session, socket) do
-    Employees.subscribe()
+    :ok = Employees.subscribe()
 
     {:ok, fetch(socket, id)}
   end
@@ -15,14 +17,12 @@ defmodule CatOnDutyWeb.SentryLive.Show do
         {Employees, [:sentry, :deleted], %{id: deleted_id}},
         %{assigns: %{sentry: sentry}} = socket
       ) do
-    cond do
-      deleted_id == sentry.id ->
-        {:noreply,
-         socket
-         |> push_redirect(to: Routes.sentry_index_path(socket, :index))}
-
-      true ->
-        {:noreply, socket}
+    if deleted_id == sentry.id do
+      {:noreply,
+       socket
+       |> push_redirect(to: Routes.sentry_index_path(socket, :index))}
+    else
+      {:noreply, socket}
     end
   end
 
@@ -30,12 +30,10 @@ defmodule CatOnDutyWeb.SentryLive.Show do
         {Employees, [:sentry | _], %{id: updated_id}},
         %{assigns: %{sentry: sentry}} = socket
       ) do
-    cond do
-      updated_id == sentry.id ->
-        {:noreply, fetch(socket, sentry.id)}
-
-      true ->
-        {:noreply, socket}
+    if updated_id == sentry.id do
+      {:noreply, fetch(socket, sentry.id)}
+    else
+      {:noreply, socket}
     end
   end
 
@@ -43,12 +41,10 @@ defmodule CatOnDutyWeb.SentryLive.Show do
         {Employees, [:team | _], %{id: updated_team_id}},
         %{assigns: %{sentry: sentry}} = socket
       ) do
-    cond do
-      updated_team_id == sentry.team_id ->
-        {:noreply, fetch(socket, sentry.id)}
-
-      true ->
-        {:noreply, socket}
+    if updated_team_id == sentry.team_id do
+      {:noreply, fetch(socket, sentry.id)}
+    else
+      {:noreply, socket}
     end
   end
 

@@ -1,4 +1,6 @@
 defmodule CatOnDutyWeb.SentryLive.FormComponent do
+  @moduledoc "Sentry edit page handlers"
+
   use CatOnDutyWeb, :live_component
 
   alias CatOnDuty.Employees

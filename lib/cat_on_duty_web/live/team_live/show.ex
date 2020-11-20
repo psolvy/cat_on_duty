@@ -1,11 +1,13 @@
 defmodule CatOnDutyWeb.TeamLive.Show do
+  @moduledoc "Team show page handlers"
+
   use CatOnDutyWeb, :live_view
 
-  alias CatOnDuty.{Employees, Employees.Team, Employees.Sentry}
+  alias CatOnDuty.{Employees, Employees.Sentry, Employees.Team}
 
   @impl true
   def mount(%{"id" => id}, _session, socket) do
-    Employees.subscribe()
+    :ok = Employees.subscribe()
 
     {:ok, fetch(socket, id)}
   end
@@ -15,14 +17,12 @@ defmodule CatOnDutyWeb.TeamLive.Show do
         {Employees, [:team, :deleted], %{id: deleted_id}},
         %{assigns: %{team: team}} = socket
       ) do
-    cond do
-      deleted_id == team.id ->
-        {:noreply,
-         socket
-         |> push_redirect(to: Routes.team_index_path(socket, :index))}
-
-      true ->
-        {:noreply, socket}
+    if deleted_id == team.id do
+      {:noreply,
+       socket
+       |> push_redirect(to: Routes.team_index_path(socket, :index))}
+    else
+      {:noreply, socket}
     end
   end
 
@@ -30,12 +30,10 @@ defmodule CatOnDutyWeb.TeamLive.Show do
         {Employees, [:team | _], %{id: updated_id}},
         %{assigns: %{team: team}} = socket
       ) do
-    cond do
-      updated_id == team.id ->
-        {:noreply, fetch(socket, team.id)}
-
-      true ->
-        {:noreply, socket}
+    if updated_id == team.id do
+      {:noreply, fetch(socket, team.id)}
+    else
+      {:noreply, socket}
     end
   end
 
@@ -89,7 +87,7 @@ defmodule CatOnDutyWeb.TeamLive.Show do
   end
 
   def handle_event("rotate_today_sentry", %{"id" => id}, socket) do
-    CatOnDutyWeb.RotateTodaySentryAndNotify.team(id)
+    {:ok, _} = CatOnDutyWeb.RotateTodaySentryAndNotify.team(id)
 
     {:noreply,
      socket

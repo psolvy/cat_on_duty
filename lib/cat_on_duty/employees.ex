@@ -1,8 +1,10 @@
 defmodule CatOnDuty.Employees do
+  @moduledoc "Team and Sentry context"
+
   import Ecto.Query, warn: false
   alias CatOnDuty.Repo
 
-  alias CatOnDuty.Employees.{Team, Sentry}
+  alias CatOnDuty.Employees.{Sentry, Team}
 
   @topic inspect(__MODULE__)
 
@@ -20,7 +22,7 @@ defmodule CatOnDuty.Employees do
   def filter_teams(search_term) do
     wildcard_search = "%#{search_term}%"
 
-    query = from t in Team, where: ilike(t.name, ^wildcard_search)
+    query = from(t in Team, where: ilike(t.name, ^wildcard_search))
 
     list_teams(query)
   end
@@ -61,13 +63,15 @@ defmodule CatOnDuty.Employees do
 
   def get_team!(id) do
     sentries_query =
-      from s in Sentry,
+      from(s in Sentry,
         order_by: [:on_vacation?, :last_duty_at]
+      )
 
     team_query =
-      from t in Team,
+      from(t in Team,
         preload: [sentries: ^sentries_query],
         preload: :today_sentry
+      )
 
     Repo.get(team_query, id)
   end
@@ -112,9 +116,10 @@ defmodule CatOnDuty.Employees do
     wildcard_search = "%#{search_term}%"
 
     query =
-      from s in Sentry,
+      from(s in Sentry,
         where: ilike(s.name, ^wildcard_search),
         or_where: ilike(s.tg_username, ^wildcard_search)
+      )
 
     list_sentries(query)
   end
@@ -155,7 +160,7 @@ defmodule CatOnDuty.Employees do
   def change_sentry(%Sentry{} = sentry, attrs \\ %{}), do: Sentry.changeset(sentry, attrs)
 
   defp broadcast_change({:ok, result}, event) do
-    Phoenix.PubSub.broadcast(CatOnDuty.PubSub, @topic, {__MODULE__, event, result})
+    :ok = Phoenix.PubSub.broadcast(CatOnDuty.PubSub, @topic, {__MODULE__, event, result})
 
     {:ok, result}
   end

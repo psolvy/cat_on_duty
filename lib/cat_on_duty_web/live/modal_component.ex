@@ -1,4 +1,6 @@
 defmodule CatOnDutyWeb.ModalComponent do
+  @moduledoc "Live view modal component"
+
   use CatOnDutyWeb, :live_component
 
   @impl true

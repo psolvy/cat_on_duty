@@ -1,17 +1,17 @@
 defmodule CatOnDutyWeb.RotateTodaySentryAndNotify do
+  @moduledoc "Serviice that provides functions for team today sentry rotation "
+
   import CatOnDuty.Gettext
-  alias CatOnDuty.{Employees, Employees.Team, Employees.Sentry}
+  alias CatOnDuty.{Employees, Employees.Sentry, Employees.Team}
 
   @business_days [1, 2, 3, 4, 5]
 
   def teams() do
-    cond do
-      Timex.weekday(Timex.today()) in @business_days ->
-        Employees.list_teams()
-        |> Enum.each(&team(&1.id))
-
-      true ->
-        {:ok, :not_business_day}
+    if Timex.weekday(Timex.today()) in @business_days do
+      Employees.list_teams()
+      |> Enum.each(&team(&1.id))
+    else
+      {:ok, :not_business_day}
     end
   end
 

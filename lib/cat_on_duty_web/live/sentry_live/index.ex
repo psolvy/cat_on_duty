@@ -1,11 +1,13 @@
 defmodule CatOnDutyWeb.SentryLive.Index do
+  @moduledoc "Sentry index page handlers"
+
   use CatOnDutyWeb, :live_view
 
   alias CatOnDuty.{Employees, Employees.Sentry}
 
   @impl true
   def mount(_params, _session, socket) do
-    Employees.subscribe()
+    :ok = Employees.subscribe()
 
     {:ok,
      socket

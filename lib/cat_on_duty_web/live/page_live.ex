@@ -1,4 +1,6 @@
 defmodule CatOnDutyWeb.PageLive do
+  @moduledoc "Root path page handlers"
+
   use CatOnDutyWeb, :live_view
 
   @impl true

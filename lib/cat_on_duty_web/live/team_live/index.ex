@@ -1,11 +1,13 @@
 defmodule CatOnDutyWeb.TeamLive.Index do
+  @moduledoc "Team index page handlers"
+
   use CatOnDutyWeb, :live_view
 
   alias CatOnDuty.{Employees, Employees.Team}
 
   @impl true
   def mount(_params, _session, socket) do
-    Employees.subscribe()
+    :ok = Employees.subscribe()
 
     {:ok,
      socket

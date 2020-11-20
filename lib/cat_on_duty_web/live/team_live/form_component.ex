@@ -1,4 +1,6 @@
 defmodule CatOnDutyWeb.TeamLive.FormComponent do
+  @moduledoc "Team edit page handlers"
+
   use CatOnDutyWeb, :live_component
 
   alias CatOnDuty.Employees
