@@ -23,6 +23,7 @@ defmodule CatOnDuty.Application do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: CatOnDuty.Supervisor]
+
     Supervisor.start_link(children, opts)
   end
 
@@ -30,6 +31,7 @@ defmodule CatOnDuty.Application do
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
     CatOnDutyWeb.Endpoint.config_change(changed, removed)
+
     :ok
   end
 end

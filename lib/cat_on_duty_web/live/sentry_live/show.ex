@@ -71,9 +71,11 @@ defmodule CatOnDutyWeb.SentryLive.Show do
      |> push_redirect(to: Routes.sentry_index_path(socket, :index))}
   end
 
+  @spec page_title(:show | :edit_sentry, Employees.Sentry.t()) :: String.t()
   defp page_title(:show, sentry), do: sentry.name
 
   defp page_title(:edit_sentry, _sentry), do: dgettext("form", "Edit sentry")
 
+  @spec fetch(Phoenix.LiveView.Socket.t(), pos_integer) :: Phoenix.LiveView.Socket.t()
   defp fetch(socket, id), do: assign(socket, :sentry, Employees.get_sentry!(id))
 end

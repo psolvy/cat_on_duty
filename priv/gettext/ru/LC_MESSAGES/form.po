@@ -44,14 +44,14 @@ msgid "Show"
 msgstr "Открыть"
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/index.ex:45
+#: lib/cat_on_duty_web/live/sentry_live/index.ex:49
 #: lib/cat_on_duty_web/live/sentry_live/index.html.leex:49 lib/cat_on_duty_web/live/team_live/show.ex:107
 #: lib/cat_on_duty_web/live/team_live/show.html.leex:64
 msgid "New sentry"
 msgstr "Новый дежурный"
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/show.ex:80
+#: lib/cat_on_duty_web/live/sentry_live/show.ex:77
 #: lib/cat_on_duty_web/live/sentry_live/show.html.leex:37 lib/cat_on_duty_web/live/team_live/show.ex:113
 msgid "Edit sentry"
 msgstr "Изменить дежурного"
@@ -68,13 +68,13 @@ msgid "Are you shure?"
 msgstr "Вы уверенны?"
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/team_live/index.ex:46
+#: lib/cat_on_duty_web/live/team_live/index.ex:50
 #: lib/cat_on_duty_web/live/team_live/index.html.leex:46
 msgid "New team"
 msgstr "Новая команда"
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/team_live/index.ex:51
+#: lib/cat_on_duty_web/live/team_live/index.ex:55
 msgid "Teams"
 msgstr "Команды"
 

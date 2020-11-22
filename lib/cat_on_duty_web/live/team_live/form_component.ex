@@ -29,6 +29,8 @@ defmodule CatOnDutyWeb.TeamLive.FormComponent do
     save_team(socket, socket.assigns.action, team_params)
   end
 
+  @spec save_team(Phoenix.LiveView.Socket.t(), :edit | :new, map) ::
+          {:noreply, Phoenix.LiveView.Socket.t()}
   defp save_team(socket, :edit, team_params) do
     case Employees.update_team(socket.assigns.team, team_params) do
       {:ok, _team} ->

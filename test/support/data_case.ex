@@ -16,6 +16,8 @@ defmodule CatOnDuty.DataCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       alias CatOnDuty.Repo
@@ -28,10 +30,10 @@ defmodule CatOnDuty.DataCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(CatOnDuty.Repo)
+    :ok = Sandbox.checkout(CatOnDuty.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(CatOnDuty.Repo, {:shared, self()})
+      Sandbox.mode(CatOnDuty.Repo, {:shared, self()})
     end
 
     :ok

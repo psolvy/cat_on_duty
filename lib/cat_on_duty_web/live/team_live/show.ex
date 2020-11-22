@@ -87,7 +87,7 @@ defmodule CatOnDutyWeb.TeamLive.Show do
   end
 
   def handle_event("rotate_today_sentry", %{"id" => id}, socket) do
-    {:ok, _} = CatOnDutyWeb.RotateTodaySentryAndNotify.team(id)
+    {:ok, _} = CatOnDutyWeb.RotateTodaySentryAndNotify.for_team(id)
 
     {:noreply,
      socket
@@ -95,6 +95,8 @@ defmodule CatOnDutyWeb.TeamLive.Show do
      |> fetch(id)}
   end
 
+  @spec apply_action(Phoenix.LiveView.Socket.t(), :show | :edit | :new_sentry, map) ::
+          Phoenix.LiveView.Socket.t()
   defp apply_action(socket, :show, %Team{name: name}), do: assign(socket, :page_title, name)
 
   defp apply_action(socket, :edit, %Team{}),
@@ -112,5 +114,6 @@ defmodule CatOnDutyWeb.TeamLive.Show do
     |> assign(:sentry, sentry)
   end
 
+  @spec fetch(Phoenix.LiveView.Socket.t(), pos_integer) :: Phoenix.LiveView.Socket.t()
   defp fetch(socket, id), do: assign(socket, :team, Employees.get_team!(id))
 end

@@ -1,7 +1,7 @@
 default: credo dialyzer
 
 credo:
-	mix credo
+	mix credo --strict
 
 dialyzer:
 	mix dialyzer

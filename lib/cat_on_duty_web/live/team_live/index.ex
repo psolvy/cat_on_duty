@@ -43,6 +43,8 @@ defmodule CatOnDutyWeb.TeamLive.Index do
      |> assign(:teams, Employees.filter_teams(search_term))}
   end
 
+  @spec apply_action(Phoenix.LiveView.Socket.t(), :new | :index, map) ::
+  Phoenix.LiveView.Socket.t()
   defp apply_action(socket, :new, _params) do
     socket
     |> assign(:page_title, dgettext("form", "New team"))
@@ -52,5 +54,6 @@ defmodule CatOnDutyWeb.TeamLive.Index do
   defp apply_action(socket, :index, _params),
     do: assign(socket, :page_title, dgettext("form", "Teams"))
 
+  @spec fetch(Phoenix.LiveView.Socket.t()) :: Phoenix.LiveView.Socket.t()
   defp fetch(socket), do: assign(socket, :teams, Employees.list_teams())
 end

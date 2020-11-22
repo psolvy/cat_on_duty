@@ -38,7 +38,7 @@ msgid "On vacation?"
 msgstr ""
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/index.ex:50
+#: lib/cat_on_duty_web/live/sentry_live/index.ex:54
 #: lib/cat_on_duty_web/live/sentry_live/index.html.leex:1 lib/cat_on_duty_web/live/team_live/show.html.leex:40
 #: lib/cat_on_duty_web/templates/layout/root.html.leex:18
 msgid "Sentries"

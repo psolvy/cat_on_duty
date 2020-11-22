@@ -8,10 +8,26 @@ defmodule CatOnDuty.Employees do
 
   @topic inspect(__MODULE__)
 
+  # Socket
+
+  @spec subscribe :: :ok | {:error, {:already_registered, pid}}
   def subscribe do
     Phoenix.PubSub.subscribe(CatOnDuty.PubSub, @topic)
   end
 
+  @spec broadcast_change({:ok, Sentry.t() | Team.t()} | {:error, Ecto.Changeset.t()}, [atom, ...]) ::
+          {:ok, Sentry.t() | Team.t()} | {:error, Ecto.Changeset.t()}
+  defp broadcast_change({:ok, result}, event) do
+    :ok = Phoenix.PubSub.broadcast(CatOnDuty.PubSub, @topic, {__MODULE__, event, result})
+
+    {:ok, result}
+  end
+
+  defp broadcast_change({:error, changeset}, _event), do: {:error, changeset}
+
+  # Team
+
+  @spec list_teams(Ecto.Query.t() | module) :: [Team.t()] | []
   def list_teams(query \\ Team) do
     query
     |> order_by(asc: :id)
@@ -19,6 +35,7 @@ defmodule CatOnDuty.Employees do
     |> Repo.preload([:today_sentry])
   end
 
+  @spec filter_teams(String.t()) :: [Team.t()] | []
   def filter_teams(search_term) do
     wildcard_search = "%#{search_term}%"
 
@@ -27,40 +44,7 @@ defmodule CatOnDuty.Employees do
     list_teams(query)
   end
 
-  def rotate_team_today_sentry(team_id) do
-    case most_rested_team_sentry(team_id) do
-      nil ->
-        team_id
-        |> get_team!()
-        |> update_team_today_sentry(nil)
-
-      most_rested ->
-        {:ok, _} = update_sentry_last_duty_at(most_rested, %{last_duty_at: Timex.now()})
-
-        team_id
-        |> get_team!()
-        |> update_team_today_sentry(most_rested.id)
-    end
-  end
-
-  defp most_rested_team_sentry(team_id) do
-    case team_sentries_not_on_vacation_sorted_by_last_duty_at(team_id) do
-      [] ->
-        nil
-
-      [most_rested | _] ->
-        most_rested
-    end
-  end
-
-  defp team_sentries_not_on_vacation_sorted_by_last_duty_at(team_id) do
-    Sentry
-    |> where([s], s.team_id == ^team_id)
-    |> where([s], not s.on_vacation?)
-    |> Repo.all()
-    |> Enum.sort_by(& &1.last_duty_at)
-  end
-
+  @spec get_team!(pos_integer) :: Team.t()
   def get_team!(id) do
     sentries_query =
       from(s in Sentry,
@@ -73,9 +57,10 @@ defmodule CatOnDuty.Employees do
         preload: :today_sentry
       )
 
-    Repo.get(team_query, id)
+    Repo.get!(team_query, id)
   end
 
+  @spec create_team(map) :: {:ok, Team.t()} | {:error, Ecto.Changeset.t()}
   def create_team(attrs \\ %{}) do
     %Team{}
     |> Team.changeset(attrs)
@@ -83,6 +68,7 @@ defmodule CatOnDuty.Employees do
     |> broadcast_change([:team, :created])
   end
 
+  @spec update_team(Team.t(), map) :: {:ok, Team.t()} | {:error, Ecto.Changeset.t()}
   def update_team(%Team{} = team, attrs) do
     team
     |> Team.changeset(attrs)
@@ -90,21 +76,28 @@ defmodule CatOnDuty.Employees do
     |> broadcast_change([:team, :updated])
   end
 
-  defp update_team_today_sentry(%Team{} = team, sentry_id) do
+  @spec update_team_today_sentry(Team.t(), map) ::
+          {:ok, Team.t()} | {:error, Ecto.Changeset.t()}
+  def update_team_today_sentry(%Team{} = team, attrs) do
     team
-    |> Team.today_sentry_changeset(%{today_sentry_id: sentry_id})
+    |> Team.today_sentry_changeset(attrs)
     |> Repo.update()
     |> broadcast_change([:team, :updated])
   end
 
+  @spec delete_team(Team.t()) :: {:ok, Team.t()} | {:error, Ecto.Changeset.t()}
   def delete_team(%Team{} = team) do
     team
     |> Repo.delete()
     |> broadcast_change([:team, :deleted])
   end
 
+  @spec change_team(Team.t(), map) :: Ecto.Changeset.t()
   def change_team(%Team{} = team, attrs \\ %{}), do: Team.changeset(team, attrs)
 
+  # Sentry
+
+  @spec list_sentries(Ecto.Query.t() | module) :: [Sentry.t()] | []
   def list_sentries(query \\ Sentry) do
     query
     |> order_by(asc: :id)
@@ -112,6 +105,7 @@ defmodule CatOnDuty.Employees do
     |> Repo.preload(:team)
   end
 
+  @spec filter_sentries(String.t()) :: [Sentry.t()] | []
   def filter_sentries(search_term) do
     wildcard_search = "%#{search_term}%"
 
@@ -124,12 +118,23 @@ defmodule CatOnDuty.Employees do
     list_sentries(query)
   end
 
+  @spec team_sentries_not_on_vacation_sorted_by_last_duty_at(pos_integer) :: [Sentry.t()] | []
+  def team_sentries_not_on_vacation_sorted_by_last_duty_at(team_id) do
+    Sentry
+    |> where([s], s.team_id == ^team_id)
+    |> where([s], not s.on_vacation?)
+    |> Repo.all()
+    |> Enum.sort_by(& &1.last_duty_at)
+  end
+
+  @spec get_sentry!(pos_integer) :: Sentry.t()
   def get_sentry!(id) do
     Sentry
     |> Repo.get!(id)
     |> Repo.preload(:team)
   end
 
+  @spec create_sentry(map) :: {:ok, Sentry.t()} | {:error, Ecto.Changeset.t()}
   def create_sentry(attrs \\ %{}) do
     %Sentry{}
     |> Sentry.changeset(attrs)
@@ -137,6 +142,7 @@ defmodule CatOnDuty.Employees do
     |> broadcast_change([:sentry, :created])
   end
 
+  @spec update_sentry(Sentry.t(), map) :: {:ok, Sentry.t()} | {:error, Ecto.Changeset.t()}
   def update_sentry(%Sentry{} = sentry, attrs) do
     sentry
     |> Sentry.changeset(attrs)
@@ -144,26 +150,22 @@ defmodule CatOnDuty.Employees do
     |> broadcast_change([:sentry, :updated])
   end
 
-  defp update_sentry_last_duty_at(%Sentry{} = sentry, attrs) do
+  @spec update_sentry_last_duty_at(Sentry.t(), map) ::
+          {:ok, Sentry.t()} | {:error, Ecto.Changeset.t()}
+  def update_sentry_last_duty_at(%Sentry{} = sentry, attrs) do
     sentry
     |> Sentry.last_duty_at_changeset(attrs)
     |> Repo.update()
     |> broadcast_change([:sentry, :updated])
   end
 
+  @spec delete_sentry(Sentry.t()) :: {:ok, Sentry.t()} | {:error, Ecto.Changeset.t()}
   def delete_sentry(%Sentry{} = sentry) do
     sentry
     |> Repo.delete()
     |> broadcast_change([:sentry, :deleted])
   end
 
+  @spec change_sentry(Sentry.t(), map) :: Ecto.Changeset.t()
   def change_sentry(%Sentry{} = sentry, attrs \\ %{}), do: Sentry.changeset(sentry, attrs)
-
-  defp broadcast_change({:ok, result}, event) do
-    :ok = Phoenix.PubSub.broadcast(CatOnDuty.PubSub, @topic, {__MODULE__, event, result})
-
-    {:ok, result}
-  end
-
-  defp broadcast_change({:error, changeset}, _event), do: {:error, changeset}
 end

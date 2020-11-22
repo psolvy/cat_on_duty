@@ -12,6 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2\n"
 
 #, elixir-format
-#: lib/cat_on_duty_web/services/rotate_sentries_and_notify.ex:39
+#: lib/cat_on_duty_web/services/rotate_sentries_and_notify.ex:76
 msgid "❗Today's duty is on %{name}(%{username})"
 msgstr ""

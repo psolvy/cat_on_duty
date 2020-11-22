@@ -42,6 +42,8 @@ defmodule CatOnDutyWeb.SentryLive.Index do
      |> assign(:sentries, Employees.filter_sentries(search_term))}
   end
 
+  @spec apply_action(Phoenix.LiveView.Socket.t(), :new_sentry | :index, map) ::
+          Phoenix.LiveView.Socket.t()
   defp apply_action(socket, :new_sentry, _params) do
     socket
     |> assign(:page_title, dgettext("form", "New sentry"))
@@ -51,5 +53,6 @@ defmodule CatOnDutyWeb.SentryLive.Index do
   defp apply_action(socket, :index, _params),
     do: assign(socket, :page_title, dgettext("sentry", "Sentries"))
 
+  @spec fetch(Phoenix.LiveView.Socket.t()) :: Phoenix.LiveView.Socket.t()
   defp fetch(socket), do: assign(socket, :sentries, Employees.list_sentries())
 end

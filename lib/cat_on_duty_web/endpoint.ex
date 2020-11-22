@@ -10,11 +10,9 @@ defmodule CatOnDutyWeb.Endpoint do
     signing_salt: "StbQKSpU"
   ]
 
-  socket "/socket", CatOnDutyWeb.UserSocket,
-    websocket: [timeout: 45_000],
-    longpoll: false
-
-  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
+  # NOTE: `timeout: 45_000` is ONLY for heroku
+  socket "/live", Phoenix.LiveView.Socket,
+    websocket: [connect_info: [session: @session_options], timeout: 45_000]
 
   # Serve at "/" the static files from "priv/static" directory.
   #

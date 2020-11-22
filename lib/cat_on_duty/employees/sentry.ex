@@ -8,13 +8,15 @@ defmodule CatOnDuty.Employees.Sentry do
   alias CatOnDuty.Employees.Team
 
   @type t :: %__MODULE__{
-          id: pos_integer,
-          name: String.t(),
-          tg_username: String.t(),
-          on_vacation?: boolean,
+          id: pos_integer | nil,
+          name: String.t() | nil,
+          tg_username: String.t() | nil,
+          on_vacation?: boolean | nil,
           last_duty_at: DateTime.t() | nil,
-          inserted_at: NaiveDateTime.t(),
-          updated_at: NaiveDateTime.t()
+          team: Team.t() | nil | Ecto.Association.NotLoaded.t(),
+          today_duty: Team.t() | nil | Ecto.Association.NotLoaded.t(),
+          inserted_at: NaiveDateTime.t() | nil,
+          updated_at: NaiveDateTime.t() | nil
         }
 
   schema "sentries" do
@@ -29,12 +31,7 @@ defmodule CatOnDuty.Employees.Sentry do
     timestamps()
   end
 
-  @spec changeset(Ecto.Changeset.t() | __MODULE__.t(), %{
-          name: String.t(),
-          team_id: pos_integer(),
-          tg_username: String.t(),
-          on_vacation?: boolean()
-        }) :: Ecto.Changeset.t()
+  @spec changeset(t, map) :: Ecto.Changeset.t()
   def changeset(sentry, attrs) do
     sentry
     |> cast(attrs, ~w[name team_id tg_username on_vacation?]a)
@@ -42,8 +39,7 @@ defmodule CatOnDuty.Employees.Sentry do
     |> validate_format(:tg_username, ~r/^@/, message: dgettext("errors", "must starts with '@'"))
   end
 
-  @spec last_duty_at_changeset(Ecto.Changeset.t() | __MODULE__.t(), %{last_duty_at: DateTime.t()}) ::
-          Ecto.Changeset.t()
+  @spec last_duty_at_changeset(t, %{last_duty_at: DateTime.t()}) :: Ecto.Changeset.t()
   def last_duty_at_changeset(sentry, attrs) do
     sentry
     |> cast(attrs, ~w[last_duty_at]a)

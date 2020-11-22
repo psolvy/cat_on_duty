@@ -30,6 +30,8 @@ defmodule CatOnDutyWeb.SentryLive.FormComponent do
     save_sentry(socket, socket.assigns.action, sentry_params)
   end
 
+  @spec save_sentry(Phoenix.LiveView.Socket.t(), :edit_sentry | :new_sentry | :new, map) ::
+          {:noreply, Phoenix.LiveView.Socket.t()}
   defp save_sentry(socket, :edit_sentry, sentry_params) do
     case Employees.update_sentry(socket.assigns.sentry, sentry_params) do
       {:ok, _sentry} ->
@@ -53,6 +55,8 @@ defmodule CatOnDutyWeb.SentryLive.FormComponent do
     handle_sentry_creation(sentry_params, socket)
   end
 
+  @spec handle_sentry_creation(map, Phoenix.LiveView.Socket.t()) ::
+          {:noreply, Phoenix.LiveView.Socket.t()}
   defp handle_sentry_creation(sentry_params, socket) do
     case Employees.create_sentry(sentry_params) do
       {:ok, _sentry} ->

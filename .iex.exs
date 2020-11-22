@@ -1,7 +1,5 @@
 alias CatOnDuty.Repo
 
-alias CatOnDuty.Employees
-alias CatOnDuty.Employees.Team
-alias CatOnDuty.Employees.Sentry
+alias CatOnDuty.{Employees, Employees.Sentry, Employees.Team}
 
 import_file("~/.iex.exs")

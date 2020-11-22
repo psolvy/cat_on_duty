@@ -12,37 +12,37 @@ msgstr ""
 "Plural-Forms: nplurals=2\n"
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/form_component.ex:36
+#: lib/cat_on_duty_web/live/sentry_live/form_component.ex:40
 msgid "Sentry changed"
 msgstr ""
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/form_component.ex:59
+#: lib/cat_on_duty_web/live/sentry_live/form_component.ex:65
 msgid "Sentry added"
 msgstr ""
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/show.ex:74
-#: lib/cat_on_duty_web/live/team_live/show.ex:87
+#: lib/cat_on_duty_web/live/sentry_live/show.ex:70
+#: lib/cat_on_duty_web/live/team_live/show.ex:85
 msgid "Sentry deleted"
 msgstr ""
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/team_live/form_component.ex:48
+#: lib/cat_on_duty_web/live/team_live/form_component.ex:52
 msgid "Team added"
 msgstr ""
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/team_live/form_component.ex:35
+#: lib/cat_on_duty_web/live/team_live/form_component.ex:39
 msgid "Team changed"
 msgstr ""
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/team_live/show.ex:74
+#: lib/cat_on_duty_web/live/team_live/show.ex:72
 msgid "Team deleted"
 msgstr ""
 
 #, elixir-format
-#: lib/cat_on_duty_web/live/team_live/show.ex:96
+#: lib/cat_on_duty_web/live/team_live/show.ex:94
 msgid "Team today sentry rotated"
 msgstr ""
