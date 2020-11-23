@@ -55,8 +55,7 @@ defmodule CatOnDutyWeb.RotateTodaySentryAndNotify do
     end
   end
 
-  @spec notify_about_new_today_sentry(pos_integer) ::
-          {:ok, Nadia.Model.Message.t()} | {:error, :not_sended}
+  @spec notify_about_new_today_sentry(pos_integer) :: :ok | {:error, :not_sended}
   defp notify_about_new_today_sentry(id) do
     case Employees.get_team!(id) do
       %Team{today_sentry: %Sentry{}} = team ->
@@ -67,7 +66,7 @@ defmodule CatOnDutyWeb.RotateTodaySentryAndNotify do
     end
   end
 
-  @spec notify(Team.t(), 0..6) :: {:ok, Nadia.Model.Message.t()} | {:error, :not_sended}
+  @spec notify(Team.t(), 0..6) :: :ok | {:error, :not_sended}
   defp notify(_team, 6), do: {:error, :not_sended}
 
   defp notify(%Team{today_sentry: sentry, tg_chat_id: chat_id} = team, retry) do
@@ -78,8 +77,8 @@ defmodule CatOnDutyWeb.RotateTodaySentryAndNotify do
              username: sentry.tg_username
            )
          ) do
-      {:ok, _result} = res ->
-        res
+      {:ok, _result} ->
+        :ok
 
       {:error, %Nadia.Model.Error{reason: "Bad Request: chat not found"}} ->
         {:error, :not_sended}

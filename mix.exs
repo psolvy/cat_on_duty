@@ -4,7 +4,7 @@ defmodule CatOnDuty.MixProject do
   def project do
     [
       app: :cat_on_duty,
-      version: "0.1.0",
+      version: "1.0.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
