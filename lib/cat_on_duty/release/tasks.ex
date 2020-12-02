@@ -29,7 +29,8 @@ defmodule CatOnDuty.Release.Tasks do
 
   @spec get_repos(atom) :: [module]
   defp get_repos(app) do
-    :ok = Application.load(app)
+    Application.load(app)
+
     Application.fetch_env!(app, :ecto_repos)
   end
 
