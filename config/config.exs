@@ -28,6 +28,12 @@ config :phoenix, :json_library, Jason
 
 config :gettext, :default_locale, "ru"
 
+config :businex,
+  calendars: %{
+    business: CatOnDuty.BusinessCalendar
+  },
+  default_calendar: :business
+
 config :cat_on_duty, :basic_auth, username: "ruby", password: "Rubyisthebest!"
 
 import_config "cron_tasks.exs"

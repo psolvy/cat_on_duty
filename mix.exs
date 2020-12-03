@@ -20,7 +20,7 @@ defmodule CatOnDuty.MixProject do
   def application do
     [
       mod: {CatOnDuty.Application, []},
-      extra_applications: [:logger, :runtime_tools, :ssl, :os_mon]
+      extra_applications: [:logger, :runtime_tools, :ssl, :os_mon, :businex]
     ]
   end
 
@@ -50,6 +50,7 @@ defmodule CatOnDuty.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:timex, "~> 3.6"},
+      {:businex, git: "https://github.com/blockfi/businex.git"},
       {:quantum, "~> 3.3"},
       {:nadia, "~> 0.7.0"}
     ]

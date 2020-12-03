@@ -5,11 +5,11 @@ defmodule CatOnDutyWeb.RotateTodaySentryAndNotify do
 
   alias CatOnDuty.{Employees, Employees.Sentry, Employees.Team}
 
-  @business_days [1, 2, 3, 4, 5]
-
   @spec for_all_teams :: {:ok, :rotated} | {:error, :not_business_day}
   def for_all_teams do
-    if Timex.weekday(Timex.today()) in @business_days do
+    if Timex.today()
+       |> Timex.to_naive_datetime()
+       |> Businex.Calendar.business_day?() do
       Employees.list_teams()
       |> Enum.each(&for_team(&1.id))
 
