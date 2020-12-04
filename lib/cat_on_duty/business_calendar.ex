@@ -18,7 +18,6 @@ defmodule CatOnDuty.BusinessCalendar do
         "January 6, 2021",
         "January 7, 2021",
         "January 8, 2021",
-        "January 1, 2021",
         "February 22, 2021",
         "February 23, 2021",
         "March 8, 2021",
