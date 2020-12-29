@@ -12,6 +12,7 @@ defmodule CatOnDuty.BusinessCalendar do
         "friday"
       ],
       holidays: [
+        "December 31, 2020",
         "January 1, 2021",
         "January 4, 2021",
         "January 5, 2021",
