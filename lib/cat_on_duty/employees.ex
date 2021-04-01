@@ -124,7 +124,15 @@ defmodule CatOnDuty.Employees do
     |> where([s], s.team_id == ^team_id)
     |> where([s], not s.on_vacation?)
     |> Repo.all()
-    |> Enum.sort_by(&Date.to_erl(&1.last_duty_at))
+    |> Enum.sort_by(&last_duty_at(&1))
+  end
+
+  @spec last_duty_at(Sentry.t()) :: :calendar.date() | nil
+  defp last_duty_at(%Sentry{} = sentry) do
+    case sentry.last_duty_at do
+      nil -> nil
+      date -> Date.to_erl(date)
+    end
   end
 
   @spec get_sentry!(pos_integer) :: Sentry.t()
