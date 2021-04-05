@@ -52,7 +52,8 @@ defmodule CatOnDuty.MixProject do
       {:timex, "~> 3.6"},
       {:businex, git: "https://github.com/blockfi/businex.git"},
       {:quantum, "~> 3.3"},
-      {:nadia, "~> 0.7.0"}
+      {:nadia, "~> 0.7"},
+      {:hackney, "~> 1.17"}
     ]
   end
 
