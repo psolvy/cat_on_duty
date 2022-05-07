@@ -31,7 +31,21 @@ defmodule CatOnDuty.BusinessCalendar do
         "June 14, 2021",
         "November 4, 2021",
         "November 5, 2021",
-        "December 31, 2021"
+        "December 31, 2021",
+        "January 3, 2022",
+        "January 4, 2022",
+        "January 5, 2022",
+        "January 6, 2022",
+        "January 7, 2022",
+        "February 23, 2022",
+        "March 7, 2022",
+        "March 8, 2022",
+        "May 2, 2022",
+        "May 3, 2022",
+        "May 9, 2022",
+        "May 10, 2022",
+        "June 13, 2022",
+        "November 4, 2022"
       ]
     }
   end
