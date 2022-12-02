@@ -1,13 +1,19 @@
-default: credo dialyzer
+default: mix-format mix-credo mix-dialyzer mix-test gettext
 
-credo:
-	mix credo --strict
+mix-format:
+	mix format
 
-dialyzer:
-	mix dialyzer
+mix-credo:
+	mix credo
+
+mix-dialyzer:
+	mix dialyzer --format dialyxir
+
+mix-test:
+	mix test
 
 gettext:
-	mix gettext.extract --merge && mix gettext.extract --merge --locale=ru
+	mix gettext.extract --merge
 
-prod-console-heroku:
-	heroku run "DB_POOL_SIZE=2 ./bin/cat_on_duty start_iex"
+seed:
+	mix run priv/repo/seeds.exs

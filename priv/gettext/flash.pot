@@ -10,38 +10,38 @@
 msgid ""
 msgstr ""
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/sentry_live/form_component.ex:40
+#, elixir-autogen, elixir-format
 msgid "Sentry changed"
 msgstr ""
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/sentry_live/form_component.ex:65
+#, elixir-autogen, elixir-format
 msgid "Sentry added"
 msgstr ""
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/sentry_live/show.ex:70
 #: lib/cat_on_duty_web/live/team_live/show.ex:85
+#, elixir-autogen, elixir-format
 msgid "Sentry deleted"
 msgstr ""
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/team_live/form_component.ex:52
+#, elixir-autogen, elixir-format
 msgid "Team added"
 msgstr ""
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/team_live/form_component.ex:39
+#, elixir-autogen, elixir-format
 msgid "Team changed"
 msgstr ""
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/team_live/show.ex:72
+#, elixir-autogen, elixir-format
 msgid "Team deleted"
 msgstr ""
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/team_live/show.ex:94
+#, elixir-autogen, elixir-format
 msgid "Team today sentry rotated"
 msgstr ""

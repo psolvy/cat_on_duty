@@ -45,7 +45,21 @@ defmodule CatOnDuty.BusinessCalendar do
         "May 9, 2022",
         "May 10, 2022",
         "June 13, 2022",
-        "November 4, 2022"
+        "November 4, 2022",
+        "January 2, 2023",
+        "January 3, 2023",
+        "January 4, 2023",
+        "January 5, 2023",
+        "January 6, 2023",
+        "February 23, 2023",
+        "February 24, 2023",
+        "March 7, 2023",
+        "March 8, 2023",
+        "May 1, 2023",
+        "May 8, 2023",
+        "May 9, 2023",
+        "June 12, 2023",
+        "November 6, 2023"
       ]
     }
   end

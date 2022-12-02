@@ -11,8 +11,8 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2\n"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/show.html.leex:28
-#: lib/cat_on_duty_web/live/team_live/show.html.leex:54
+#: lib/cat_on_duty_web/live/sentry_live/show.html.heex:31
+#: lib/cat_on_duty_web/live/team_live/show.html.heex:70
+#, elixir-autogen, elixir-format
 msgid "date"
 msgstr ""

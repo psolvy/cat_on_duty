@@ -1,12 +1,13 @@
 <h1><%= @sentry.name %></h1>
 
 <%= if @live_action in ~w[edit_sentry]a do %>
-  <%= live_modal @socket, CatOnDutyWeb.SentryLive.FormComponent,
+  <%= live_modal(CatOnDutyWeb.SentryLive.FormComponent,
     id: @sentry.id,
     title: @page_title,
     action: @live_action,
     sentry: @sentry,
-    return_to: Routes.sentry_show_path(@socket, :show, @sentry) %>
+    return_to: Routes.sentry_show_path(@socket, :show, @sentry)
+  ) %>
 <% end %>
 
 <table id="sentry">
@@ -17,7 +18,9 @@
   <tr>
     <th><%= dgettext("sentry", "Team") %></th>
     <%= if @sentry.team != nil do %>
-      <td><%= link @sentry.team.name, to: Routes.team_show_path(@socket, :show, @sentry.team) %></td>
+      <td>
+        <%= link(@sentry.team.name, to: Routes.team_show_path(@socket, :show, @sentry.team)) %>
+      </td>
     <% else %>
       <td><%= dgettext("form", "Not selected") %></td>
     <% end %>
@@ -30,9 +33,24 @@
   <% end %>
   <tr>
     <th><%= dgettext("sentry", "On vacation?") %></th>
-    <td><%= if @sentry.on_vacation?, do: dgettext("form", "Yes"), else: dgettext("form", "No") %></td>
+    <td>
+      <%= if @sentry.on_vacation?, do: dgettext("form", "Yes"), else: dgettext("form", "No") %>
+    </td>
   </tr>
 </table>
 
-<span><%= live_patch dgettext("form", "Edit sentry"), to: Routes.sentry_show_path(@socket, :edit_sentry, @sentry), class: "button" %></span>
-<span><%= link dgettext("form", "Delete sentry"), to: "#", phx_click: "delete", phx_value_id: @sentry.id, data: [confirm: dgettext("form", "Are you shure?")], class: "button" %></span>
+<span>
+  <%= live_patch(dgettext("form", "Edit sentry"),
+    to: Routes.sentry_show_path(@socket, :edit_sentry, @sentry),
+    class: "button"
+  ) %>
+</span>
+<span>
+  <%= link(dgettext("form", "Delete sentry"),
+    to: "#",
+    phx_click: "delete",
+    phx_value_id: @sentry.id,
+    data: [confirm: dgettext("form", "Are you shure?")],
+    class: "button"
+  ) %>
+</span>

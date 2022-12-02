@@ -93,7 +93,7 @@ msgstr ""
 msgid "must be equal to %{number}"
 msgstr ""
 
-#, elixir-format
 #: lib/cat_on_duty/employees/sentry.ex:39
+#, elixir-autogen, elixir-format
 msgid "must starts with '@'"
 msgstr "должно начинаться с '@'"

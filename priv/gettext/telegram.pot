@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 
-#, elixir-format
-#: lib/cat_on_duty_web/services/rotate_sentries_and_notify.ex:76
+#: lib/cat_on_duty_web/services/rotate_sentries_and_notify.ex:75
+#, elixir-autogen, elixir-format
 msgid "❗Today's duty is on %{name}(%{username})"
 msgstr ""

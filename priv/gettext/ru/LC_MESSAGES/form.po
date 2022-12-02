@@ -11,112 +11,114 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3\n"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:24
-#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:39 lib/cat_on_duty_web/live/sentry_live/show.html.leex:33
-#: lib/cat_on_duty_web/live/team_live/show.html.leex:55
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.heex:23
+#: lib/cat_on_duty_web/live/sentry_live/index.html.heex:45
+#: lib/cat_on_duty_web/live/sentry_live/show.html.heex:37
+#: lib/cat_on_duty_web/live/team_live/show.html.heex:73
+#, elixir-autogen, elixir-format
 msgid "No"
 msgstr "Нет"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:27
-#: lib/cat_on_duty_web/live/team_live/form_component.html.leex:17
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.heex:28
+#: lib/cat_on_duty_web/live/team_live/form_component.html.heex:13
+#, elixir-autogen, elixir-format
 msgid "Save"
 msgstr "Сохранить"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:24
-#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:39 lib/cat_on_duty_web/live/sentry_live/show.html.leex:33
-#: lib/cat_on_duty_web/live/team_live/show.html.leex:55
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.heex:24
+#: lib/cat_on_duty_web/live/sentry_live/index.html.heex:45
+#: lib/cat_on_duty_web/live/sentry_live/show.html.heex:37
+#: lib/cat_on_duty_web/live/team_live/show.html.heex:73
+#, elixir-autogen, elixir-format
 msgid "Yes"
 msgstr "Да"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:27
-#: lib/cat_on_duty_web/live/team_live/form_component.html.leex:17
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.heex:28
+#: lib/cat_on_duty_web/live/team_live/form_component.html.heex:13
+#, elixir-autogen, elixir-format
 msgid "Saving..."
 msgstr "Сохраняем..."
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:41
-#: lib/cat_on_duty_web/live/team_live/index.html.leex:39 lib/cat_on_duty_web/live/team_live/show.html.leex:57
+#: lib/cat_on_duty_web/live/sentry_live/index.html.heex:48
+#: lib/cat_on_duty_web/live/team_live/index.html.heex:44
+#: lib/cat_on_duty_web/live/team_live/show.html.heex:76
+#, elixir-autogen, elixir-format
 msgid "Show"
 msgstr "Открыть"
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/sentry_live/index.ex:49
-#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:49 lib/cat_on_duty_web/live/team_live/show.ex:107
-#: lib/cat_on_duty_web/live/team_live/show.html.leex:64
+#: lib/cat_on_duty_web/live/sentry_live/index.html.heex:59
+#: lib/cat_on_duty_web/live/team_live/show.ex:107
+#: lib/cat_on_duty_web/live/team_live/show.html.heex:87
+#, elixir-autogen, elixir-format
 msgid "New sentry"
 msgstr "Новый дежурный"
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/sentry_live/show.ex:77
-#: lib/cat_on_duty_web/live/sentry_live/show.html.leex:37 lib/cat_on_duty_web/live/team_live/show.ex:113
+#: lib/cat_on_duty_web/live/sentry_live/show.html.heex:43
+#: lib/cat_on_duty_web/live/team_live/show.ex:113
+#, elixir-autogen, elixir-format
 msgid "Edit sentry"
 msgstr "Изменить дежурного"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/show.html.leex:38
+#: lib/cat_on_duty_web/live/sentry_live/show.html.heex:49
+#, elixir-autogen, elixir-format
 msgid "Delete sentry"
 msgstr "Удалить дежурного"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/show.html.leex:38
-#: lib/cat_on_duty_web/live/team_live/show.html.leex:35 lib/cat_on_duty_web/live/team_live/show.html.leex:66
+#: lib/cat_on_duty_web/live/sentry_live/show.html.heex:53
+#: lib/cat_on_duty_web/live/team_live/show.html.heex:46
+#: lib/cat_on_duty_web/live/team_live/show.html.heex:103
+#, elixir-autogen, elixir-format
 msgid "Are you shure?"
 msgstr "Вы уверенны?"
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/team_live/index.ex:50
-#: lib/cat_on_duty_web/live/team_live/index.html.leex:46
+#: lib/cat_on_duty_web/live/team_live/index.html.heex:55
+#, elixir-autogen, elixir-format
 msgid "New team"
 msgstr "Новая команда"
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/team_live/index.ex:55
+#, elixir-autogen, elixir-format
 msgid "Teams"
 msgstr "Команды"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/team_live/show.html.leex:66
+#: lib/cat_on_duty_web/live/team_live/show.html.heex:99
+#, elixir-autogen, elixir-format
 msgid "Delete team"
 msgstr "Удалить команду"
 
-#, elixir-format
 #: lib/cat_on_duty_web/live/team_live/show.ex:103
-#: lib/cat_on_duty_web/live/team_live/show.html.leex:65
+#: lib/cat_on_duty_web/live/team_live/show.html.heex:93
+#, elixir-autogen, elixir-format
 msgid "Edit team"
 msgstr "Изменить команду"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:15
+#: lib/cat_on_duty_web/live/sentry_live/index.html.heex:17
+#, elixir-autogen, elixir-format
 msgid "Search by name or telegram username"
 msgstr "Поиск по имени или имени пользователя telegram"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/team_live/index.html.leex:15
+#: lib/cat_on_duty_web/live/team_live/index.html.heex:17
+#, elixir-autogen, elixir-format
 msgid "Search by name"
 msgstr "Поиск по названию"
 
-#, elixir-format
-#: lib/cat_on_duty_web/templates/layout/root.html.leex:20
-msgid "Dashboard"
-msgstr "Инфопанель"
-
-#, elixir-format
-#: lib/cat_on_duty_web/live/team_live/index.html.leex:35
-#: lib/cat_on_duty_web/live/team_live/show.html.leex:33
+#: lib/cat_on_duty_web/live/team_live/index.html.heex:40
+#: lib/cat_on_duty_web/live/team_live/show.html.heex:39
+#, elixir-autogen, elixir-format
 msgid "Nobody, we are in danger!"
 msgstr "Никого, мы в опасности!"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/team_live/show.html.leex:35
+#: lib/cat_on_duty_web/live/team_live/show.html.heex:42
+#, elixir-autogen, elixir-format
 msgid "Rotate today sentry"
 msgstr "Запустить ротацию дежурных"
 
-#, elixir-format
-#: lib/cat_on_duty_web/live/sentry_live/form_component.html.leex:19
-#: lib/cat_on_duty_web/live/sentry_live/index.html.leex:37 lib/cat_on_duty_web/live/sentry_live/show.html.leex:22
+#: lib/cat_on_duty_web/live/sentry_live/form_component.html.heex:16
+#: lib/cat_on_duty_web/live/sentry_live/index.html.heex:42
+#: lib/cat_on_duty_web/live/sentry_live/show.html.heex:25
+#, elixir-autogen, elixir-format
 msgid "Not selected"
 msgstr "Не выбрана"

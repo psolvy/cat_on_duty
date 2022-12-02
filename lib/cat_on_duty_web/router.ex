@@ -1,8 +1,7 @@
 defmodule CatOnDutyWeb.Router do
   use CatOnDutyWeb, :router
 
-  import Phoenix.LiveDashboard.Router
-  import Plug.BasicAuth
+  alias CatOnDutyWeb.Plugs
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -11,7 +10,7 @@ defmodule CatOnDutyWeb.Router do
     plug :put_root_layout, {CatOnDutyWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug :basic_auth, Application.compile_env(:cat_on_duty, :basic_auth)
+    plug Plugs.Auth
   end
 
   pipeline :api do
@@ -20,8 +19,6 @@ defmodule CatOnDutyWeb.Router do
 
   scope "/", CatOnDutyWeb do
     pipe_through :browser
-
-    live_dashboard "/dashboard", metrics: CatOnDutyWeb.Telemetry
 
     live "/", PageLive, :index
 

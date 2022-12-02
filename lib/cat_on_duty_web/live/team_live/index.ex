@@ -44,7 +44,7 @@ defmodule CatOnDutyWeb.TeamLive.Index do
   end
 
   @spec apply_action(Phoenix.LiveView.Socket.t(), :new | :index, map) ::
-  Phoenix.LiveView.Socket.t()
+          Phoenix.LiveView.Socket.t()
   defp apply_action(socket, :new, _params) do
     socket
     |> assign(:page_title, dgettext("form", "New team"))

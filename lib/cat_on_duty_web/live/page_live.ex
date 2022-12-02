@@ -5,7 +5,8 @@ defmodule CatOnDutyWeb.PageLive do
 
   @impl true
   def render(assigns) do
-    ~L"""
+    ~H"""
+
     """
   end
 
