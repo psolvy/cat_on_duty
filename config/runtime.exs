@@ -25,6 +25,8 @@ password = System.fetch_env!("PASSWORD")
 
 config :cat_on_duty, :basic_auth, username: username, password: password
 
+config :nadia, token: {:system, "TG_BOT_TOKEN"}
+
 if config_env() == :prod do
   secret_key_base = System.fetch_env!("SECRET_KEY_BASE")
   host = System.get_env("PHX_HOST")
@@ -43,7 +45,4 @@ if config_env() == :prod do
     ssl: true,
     url: database_url,
     pool_size: String.to_integer(db_pool_size)
-
-  config :nadia,
-    token: {:system, "TG_BOT_TOKEN"}
 end

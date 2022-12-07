@@ -1,6 +1,8 @@
 defmodule CatOnDutyWeb.Router do
   use CatOnDutyWeb, :router
 
+  import Oban.Web.Router
+
   alias CatOnDutyWeb.Plugs
 
   pipeline :browser do
@@ -19,6 +21,8 @@ defmodule CatOnDutyWeb.Router do
 
   scope "/", CatOnDutyWeb do
     pipe_through :browser
+
+    oban_dashboard("/oban")
 
     live "/", PageLive, :index
 

@@ -18,5 +18,7 @@ config :cat_on_duty, CatOnDutyWeb.Endpoint,
   http: [port: 4002],
   server: false
 
+config :cat_on_duty, Oban, testing: :inline
+
 # Print only warnings and errors during test
 config :logger, level: :warn

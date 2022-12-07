@@ -17,7 +17,7 @@ defmodule CatOnDuty.Application do
       CatOnDutyWeb.Endpoint,
       # Start a worker by calling: CatOnDuty.Worker.start_link(arg)
       # {CatOnDuty.Worker, arg}
-      CatOnDuty.Scheduler
+      {Oban, Application.fetch_env!(:cat_on_duty, Oban)}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

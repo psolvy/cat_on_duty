@@ -2,14 +2,17 @@ defmodule CatOnDuty.BusinessCalendar do
   @moduledoc """
     Module that's contains not business days
   """
+
   def get do
     %{
-      working_days: [
-        "monday",
-        "tuesday",
-        "wednesday",
-        "thursday",
-        "friday"
+      # NOTE: Businex has timex inside and track name of days with default Gettext locale starting
+      # from 3.7.3 (https://hexdocs.pm/timex/changelog.html#3-7-3)
+      working_days: ~w[
+        понедельник
+        вторник
+        среда
+        четверг
+        пятница
       ],
       holidays: [
         "December 31, 2020",

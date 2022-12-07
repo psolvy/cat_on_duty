@@ -36,13 +36,27 @@ config :phoenix, :json_library, Jason
 
 config :gettext, :default_locale, "ru"
 
+config :cat_on_duty, Oban,
+  engine: Oban.Pro.Queue.SmartEngine,
+  repo: CatOnDuty.Repo,
+  queues: [
+    rotation: 1
+  ],
+  plugins: [
+    Oban.Plugins.Gossip,
+    Oban.Pro.Plugins.DynamicLifeline,
+    Oban.Web.Plugins.Stats,
+    {Oban.Plugins.Cron,
+     crontab: [
+       {"0 7 * * *", CatOnDuty.Workers.RotateAllSentries}
+     ]}
+  ]
+
 config :businex,
   calendars: %{
     business: CatOnDuty.BusinessCalendar
   },
   default_calendar: :business
-
-import_config "cron_tasks.exs"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

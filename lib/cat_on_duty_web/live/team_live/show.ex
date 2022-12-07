@@ -3,7 +3,10 @@ defmodule CatOnDutyWeb.TeamLive.Show do
 
   use CatOnDutyWeb, :live_view
 
-  alias CatOnDuty.{Employees, Employees.Sentry, Employees.Team}
+  alias CatOnDuty.Employees
+  alias CatOnDuty.Employees.Sentry
+  alias CatOnDuty.Employees.Team
+  alias CatOnDuty.Services.RotateTodaySentryAndNotify
 
   @impl true
   def mount(%{"id" => id}, _session, socket) do
@@ -87,7 +90,7 @@ defmodule CatOnDutyWeb.TeamLive.Show do
   end
 
   def handle_event("rotate_today_sentry", %{"id" => id}, socket) do
-    {:ok, _} = CatOnDutyWeb.RotateTodaySentryAndNotify.for_team(id)
+    {:ok, _} = RotateTodaySentryAndNotify.for_team(id)
 
     {:noreply,
      socket
